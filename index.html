@@ -1,68 +1,90 @@
-<html lang="en-US"><head><script>function AdfLoopbackUtils(){}AdfLoopbackUtils._addCookie=function(a,b){var d=new Date;d.setTime(d.getTime()+3E4);d="; expires\x3d"+d.toUTCString();document.cookie=a+"\x3d"+(null!=b?b:"")+d+"; path\x3d/"};AdfLoopbackUtils._addParam=function(a,b,d,e,f){try{f?AdfLoopbackUtils._addCookie(d,e):null!=e&&""!==e&&(a=null==a||""===a?"?":a+"\x26",a=a+b+"\x3d"+e)}catch(g){}return a};AdfLoopbackUtils._addQS=function(a,b){AdfLoopbackUtils._internalParams[a]||(AdfLoopbackUtils._queryParamNames.push(a),AdfLoopbackUtils._queryParamValues.push(b))};
-AdfLoopbackUtils._replaceCallback=function(a,b,d,e){AdfLoopbackUtils._addQS(b,e)};AdfLoopbackUtils._cookiesEnabled=function(){return navigator&&navigator.cookieEnabled};AdfLoopbackUtils._findWithBinarySearch=function(a,b,d,e){if(d<=b)return b;for(var f=Math.ceil((d+b)/2);;){if(b==f||d==f)return b;window.matchMedia("( min-"+a+": "+f+e+")").matches?b=f:d=f;f=Math.ceil((d+b)/2)}};
-AdfLoopbackUtils._getTouchFeature=function(){var a="none";navigator.maxTouchPoints&&(a=1<navigator.maxTouchPoints?"multiple":"single");return a};AdfLoopbackUtils._addFontSizeParam=function(a,b,d,e){var f="16";try{f=window.getComputedStyle(document.createElement("div")).fontSize||window.getComputedStyle(document.documentElement).fontSize,f=f.substring(0,f.indexOf("px"))}catch(g){fontsize="16"}return a=AdfLoopbackUtils._addParam(a,b,d,f,e)};
-AdfLoopbackUtils._addMediaTypeParam=function(a,b,d,e){var f="screen print handheld aural braille embossed tv projection tty".split(" "),g="all";try{for(var h=0;h<f.length;h++)if(window.matchMedia(f[h]).matches){g=f[h];break}}catch(k){g="all"}return a=AdfLoopbackUtils._addParam(a,b,d,g,e)};
-AdfLoopbackUtils._addMediaFeatures=function(a,b,d,e,f,g,h,k,l,m,n,p,q,r,s,t,u,v,w,y,z,A,B,C,D,G,E,H){a=AdfLoopbackUtils._addFontSizeParam(a,d,t,b);a=AdfLoopbackUtils._addMediaTypeParam(a,e,u,b);a=AdfLoopbackUtils._addParam(a,f,v,window.innerWidth,b);a=AdfLoopbackUtils._addParam(a,g,w,window.innerHeight,b);a=AdfLoopbackUtils._addParam(a,h,y,screen.width,b);a=AdfLoopbackUtils._addParam(a,k,z,screen.height,b);d=AdfLoopbackUtils._findWithBinarySearch("color",0,50,"");a=AdfLoopbackUtils._addParam(a,l,
-A,d,b);l=AdfLoopbackUtils._findWithBinarySearch("color-index",0,50,"");a=AdfLoopbackUtils._addParam(a,m,B,l,b);m=AdfLoopbackUtils._findWithBinarySearch("monochrome",0,20,"");a=AdfLoopbackUtils._addParam(a,n,C,m,b);n=AdfLoopbackUtils._findWithBinarySearch("resolution",0,1E3,"dpi");a=AdfLoopbackUtils._addParam(a,p,D,n,b);p=window.matchMedia("(grid)").matches;a=AdfLoopbackUtils._addParam(a,q,G,p?1:0,b);q=window.matchMedia("(scan: progressive)").matches;a=AdfLoopbackUtils._addParam(a,r,E,q?1:0,b);r=window.matchMedia("(orientation: portrait)").matches?
-1:0;return a=AdfLoopbackUtils._addParam(a,s,H,r,b)};
-AdfLoopbackUtils.runLoopback=function(a,b,d,e,f,g,h,k,l,m,n,p,q,r,s,t,u,v,w,y,z,A,B,C,D,G,E,H,I,J,N,Q,O,U,W,X,Y,Z,$,aa,ba,ca,da,ea,fa,ga,R){AdfLoopbackUtils._queryParamNames=[];AdfLoopbackUtils._queryParamValues=[];AdfLoopbackUtils._internalParams=v;var T=""===h?null:h,S=null,F=null,M=null,K=document.location.href,L=K.indexOf("#");h=0<L?K.substring(L+1):null;v=K=0<L?K.substring(0,L):K;n=n?AdfLoopbackUtils._cookiesEnabled():n;var P=null;try{P=window.history.state}catch(ha){}null==T&&null!=P&&(T=P[g]);
-if(0<L)if(0==h.indexOf(m))u=decodeURIComponent(h.substring(m.length)).split("@"),L=u.length,1<=L&&null==T&&(T=u[0]),2<=L&&(S=u[1]),3<=L&&(F=u[2]),4<=L&&(M=u[3]);else if(M=decodeURIComponent(h),u&&(0<=M.indexOf("/")||0<=M.indexOf("@")))M=M.split("@"),u=M.length,1<=u&&(S=M[0]),2<=u&&(F=M[1]),M=null;u=K.indexOf("?");0<u&&(F=F||S&&0<S.length?F:K.substring(u),K=K.substring(0,u));if(null!=F&&0<F.length&&(F.replace(/([^?=&]+)(=([^&]*))?/g,AdfLoopbackUtils._replaceCallback),F=null,u=AdfLoopbackUtils._queryParamNames,
-L=AdfLoopbackUtils._queryParamValues,0<u.length)){F="";for(P=0;P<u.length;P++)var V=L[P],F=F+(0==P?"?":"\x26")+u[P]+"\x3d"+(null==V?"":V)}u=0;F&&0<=F.indexOf("_rtrnId")&&(u=1,n=!1,L=window.parent?window.parent.name:null,/^ADFDialog\d+['$']/.test(L)&&(L=L.split("$"),window.name=L[1]));L=K.indexOf(";");0<L&&(K=K.substring(0,L));!l&&!AdfLoopbackUtils._cookiesEnabled()?window.location.replace(K.substring(0,K.length-a)+w):(S&&0<S.length&&(K=K.substring(0,K.length-a)+S),F=AdfLoopbackUtils._addParam(F,b,
-p,d,n),n&&AdfLoopbackUtils._addCookie(t,""),a=window.name,/^[\w]+$/.test(a)||(a=null),1!=u&&!a&&(u=2),F=AdfLoopbackUtils._addParam(F,e,q,u,n),a||(a=k,window.name=a),AdfLoopbackUtils._saveWindowId(f),F=AdfLoopbackUtils._addParam(F,f,r,a,n),l&&(0==l.indexOf(";")?K+=l:0==l.indexOf("?")&&(F=null==F||0==F.length?"?":F+"\x26",F+=l.substr(1))),F=AdfLoopbackUtils._addParam(F,g,s,T,n),F=AdfLoopbackUtils._addMediaFeatures(F,n,y,z,A,B,C,D,G,E,H,I,J,N,Q,U,W,X,Y,Z,$,aa,ba,ca,da,ea,fa,ga),""!=O&&(e=AdfLoopbackUtils._getTouchFeature(),
-F=AdfLoopbackUtils._addParam(F,O,R,e,n)),O=K+(null==F?"":F),R=null!=M&&0<M.length?encodeURIComponent(M):null,e=window.location,f=!1,null!=window.console&&null!=window.console.firebug&&(f=parseFloat(window.console.firebug),f=!isNaN(f)&&1.9>f),O==v&&(null!=R||f)?(h!=R&&e.replace(null==R?"#"+m:"#"+R),e.reload(!0)):e.replace(null==R?O:O+"#"+R))};
-AdfLoopbackUtils.runRedirect=function(a,b){var d=b,e=new Date;e.setTime(e.getTime()+3E4);d=d.replace(/\$exp\$/g,e.toUTCString());d=d.split("$$");for(i=0;i<d.length;i++)document.cookie=d[i];var d=document.location,e=d.href,f=null,g=e.indexOf("#");0<=g&&(e=e.substring(0,g),f=e.substring(g));var h=a,k=null,g=h.indexOf("#");0<=g&&(h=h.substring(0,g),k=h.substring(g));h==e&&null!=k?(f!=k&&d.replace(k),d.reload(!0)):d.replace(a)};
-AdfLoopbackUtils._saveWindowId=function(a){if(window===parent)try{var b=window.name;b&&0<b.length&&sessionStorage.setItem(a,b)}catch(d){}};
-/*
-** Copyright (c) 2008, 2017, Oracle and/or its affiliates. All rights reserved.
-*/
 
- AdfLoopbackUtils.runLoopback(
- 10,
- '_afrLoop',
- '7819492113533947',
- '_afrWindowMode',
- 'Adf-Window-Id',
- '_afrPage',
- '',
- 'w9ksznyaba',
- '',
- '!',
- false,
- '',
- '',
- '',
- '',
- '',
- false,
- {'_afrLoop':1,'_afrWindowMode':1,'Adf-Window-Id':1,'_afrPage':1,'_afrRedirect':1,'Adf-Page-Id':1,'_afrMT':1,'_afrFS':1,'_afrMFW':1,'_afrMFH':1,'_afrMFDH':1,'_afrMFDW':1,'_afrMFC':1,'_afrMFCI':1,'_afrMFM':1,'_afrMFR':1,'_afrMFG':1,'_afrMFS':1,'_afrMFO':1,'_afrTC':1},
- '/_noloopbackerror_',
- '_afrFS',
- '_afrMT',
- '_afrMFW',
- '_afrMFH',
- '_afrMFDW',
- '_afrMFDH',
- '_afrMFC',
- '_afrMFCI', 
- '_afrMFM', 
- '_afrMFR',
- '_afrMFG', 
- '_afrMFS',
- '_afrMFO',
- '',
- '',
- '',
- '',
- '',
- '',
- '',
- '',
- '', 
- '', 
- '',
- '', 
- '',
- '',
- ''
- );
-</script><noscript>This page uses JavaScript and requires a JavaScript enabled browser.Your browser is not JavaScript enabled.</noscript></head></html>
+
+    <!--
+    * You can use callback method for success and fail submit form
+    * submitSuccess()
+    * submitFail()
+    -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Landing widget</title>
+
+        <style>
+          
+        </style>
+
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script src="https://unpkg.com/libphonenumber-js@1.9.50/bundle/libphonenumber-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/js/intlTelInput-jquery.min.js" integrity="sha512-+xuLsxQN3JBrnBSAr/vOlUqZfQ0OwpqZfdbuiQVpzjd5Y85F8F2AyzP4YNVDrpR29EolzELxc62br5gWK51phQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.superphone.io/widgets/widget.css" />
+    <script src="https://cdn.superphone.io/widgets/widget.min.js"></script>
+  
+        <script type="text/javascript">
+          window.sp = {
+            widgetHash: 'nG2BeG',
+            type: 'page',
+          }
+          
+          // function formError(xhr, textStatus) {
+          //   // Custom code Form error
+          // }
+          // function formSuccess(result) {
+          //   // Custom code FOrm success
+          // }
+        </script>
+
+        <style>
+          body {
+            margin: 0;
+          }
+
+          html,
+          body {
+            height: 100%;
+            width: 100%;
+          }
+        </style>
+    </head>
+    <body>
+      <div id="superphone-widget-page" style="background-size:cover;background-repeat:no-repeat;background-image:url(https://cdn.filestackcontent.com/BBz0Rw3LSHWU0ZkKr1ZZ);background-color:rgba(0,0,0,1);font-family:Circular, Arial;">
+        <div id="superphone-widget-wrapper">
+          <div id="superphone-widget-landing-wrapper" class="superphone-widget widget-landing" style="background-color: rgba(255,255,255,0);">
+            <div id="superphone-widget-title" style="color: null">Please leave your number below </div>
+            <div id="superphone-widget-description" style="color: null">&amp; I&#39;ll shoot you a text</div>
+            <form id="addContact" action="#" method="POST" autocomplete="false">
+              <div id="superphone-input-wrapper">
+                <div class="phone-input-wrapper">
+                  <input
+                      autocomplete="off"
+                      tabindex="4"
+                      type="tel"
+                      class="superphone-form-control"
+                      id="phone"
+                      name="mobile"
+                      placeholder="Mobile # (w/ country code)"
+                  >
+                </div>
+                <div class="superphone-send-button">
+                  <button style="background: rgba(255,255,252,1); color: null;font-family: Circular, Arial" type="submit" id="submitButton">Send</button>
+                </div>
+              </div>
+              <div id="form-error-message" class="form-error">
+                <div>Something went wrong. Please check your mobile and try again.</div>
+              </div>
+              <div id="form-error-mobile" class="form-error">
+                Phone number is not valid.
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    </body>
+    
